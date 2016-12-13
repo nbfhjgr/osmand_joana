@@ -24,7 +24,9 @@ public class FavoritePointEditor extends PointEditor {
 		return favorite;
 	}
 
-	public void add(LatLon latLon, String title, String originObjectName) {
+	public void add(
+			//@Source(mayInclude = "FavoritesLocations", id="030")
+			LatLon latLon, String title, String originObjectName) {
 		if (latLon == null) {
 			return;
 		}

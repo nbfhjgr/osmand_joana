@@ -671,6 +671,7 @@ public class MapContextMenu extends MenuTitleController implements StateChangedL
 		close();
 	}
 
+	// 主地图中的Favorite Button被点击了
 	public void buttonFavoritePressed() {
 		if (object != null && object instanceof FavouritePoint) {
 			getFavoritePointEditor().edit((FavouritePoint) object);

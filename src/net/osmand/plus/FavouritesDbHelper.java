@@ -39,8 +39,11 @@ public class FavouritesDbHelper {
 	public static final int BACKUP_CNT = 20; //$NON-NLS-1$
 	public static final String FILE_TO_BACKUP = "favourites_bak.gpx"; //$NON-NLS-1$
 
+	//@Sink(mayInclude = "FavoritesLocations", id="030")
 	private List<FavouritePoint> cachedFavoritePoints = new ArrayList<FavouritePoint>();
 	private List<FavoriteGroup> favoriteGroups = new ArrayList<FavouritesDbHelper.FavoriteGroup>();
+
+	// @Sink(mayInclude = "FavoritesGroup", id="031")
 	private Map<String, FavoriteGroup> flatGroups = new LinkedHashMap<String, FavouritesDbHelper.FavoriteGroup>();
 	private final OsmandApplication context;
 	protected static final String HIDDEN = "HIDDEN";

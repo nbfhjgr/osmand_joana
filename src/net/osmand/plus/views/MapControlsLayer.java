@@ -417,6 +417,7 @@ public class MapControlsLayer extends OsmandMapLayer {
 		});
 	}
 
+
 	public void doRoute(boolean hasTargets) {
 		this.hasTargets = hasTargets;
 		if (OsmAndLocationProvider.isLocationPermissionAvailable(mapActivity)) {

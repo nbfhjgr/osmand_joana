@@ -416,6 +416,7 @@ public class QuickSearchDialogFragment extends DialogFragment implements OsmAndC
 
 					@Override
 					public void onPageSelected(int position) {
+						// For Search Tab changed
 						hideKeyboard();
 					}
 
@@ -438,7 +439,9 @@ public class QuickSearchDialogFragment extends DialogFragment implements OsmAndC
 
 					@Override
 					public void afterTextChanged(Editable s) {
+						//@Source(mayInclude = "InterestingLocations", id="010")
 						String newQueryText = s.toString();
+
 						updateClearButtonAndHint();
 						updateClearButtonVisibility(true);
 						boolean textEmpty = newQueryText.length() == 0;
@@ -1028,6 +1031,7 @@ public class QuickSearchDialogFragment extends DialogFragment implements OsmAndC
 	}
 
 	private void runCoreSearchInternal(String text, boolean updateResult, boolean searchMore) {
+		//@Sink(mayInclude = "InterestingLocations", id="010")
 		SearchResultCollection c = searchUICore.search(text, new ResultMatcher<SearchResult>() {
 			SearchResultCollection regionResultCollection = null;
 			SearchCoreAPI regionResultApi = null;
