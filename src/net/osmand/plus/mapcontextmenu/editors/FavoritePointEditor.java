@@ -25,7 +25,6 @@ public class FavoritePointEditor extends PointEditor {
 	}
 
 	public void add(
-			//@Source(mayInclude = "FavoritesLocations", id="030")
 			LatLon latLon, String title, String originObjectName) {
 		if (latLon == null) {
 			return;

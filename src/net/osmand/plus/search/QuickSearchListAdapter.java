@@ -48,6 +48,8 @@ public class QuickSearchListAdapter extends ArrayAdapter<QuickSearchListItem> {
 	private OnSelectionListener selectionListener;
 	private boolean selectionMode;
 	private boolean selectAll;
+	// history Selected Search Items
+	// @Source(mayInclude = "HistoryEntries", id="030")
 	private List<QuickSearchListItem> selectedItems = new ArrayList<>();
 
 	private static final int ITEM_TYPE_REGULAR = 0;

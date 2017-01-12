@@ -439,7 +439,6 @@ public class QuickSearchDialogFragment extends DialogFragment implements OsmAndC
 
 					@Override
 					public void afterTextChanged(Editable s) {
-						//@Source(mayInclude = "InterestingLocations", id="010")
 						String newQueryText = s.toString();
 
 						updateClearButtonAndHint();
@@ -1031,7 +1030,6 @@ public class QuickSearchDialogFragment extends DialogFragment implements OsmAndC
 	}
 
 	private void runCoreSearchInternal(String text, boolean updateResult, boolean searchMore) {
-		//@Sink(mayInclude = "InterestingLocations", id="010")
 		SearchResultCollection c = searchUICore.search(text, new ResultMatcher<SearchResult>() {
 			SearchResultCollection regionResultCollection = null;
 			SearchCoreAPI regionResultApi = null;
@@ -1423,6 +1421,7 @@ public class QuickSearchDialogFragment extends DialogFragment implements OsmAndC
 
 					final Intent sendIntent = new Intent();
 					sendIntent.setAction(Intent.ACTION_SEND);
+					// @Sink(mayInclude = "HistoryEntries", id="030")
 					sendIntent.putExtra(Intent.EXTRA_TEXT, "History.gpx:\n\n\n" + GPXUtilities.asString(gpxFile, app));
 					sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_history_subject));
 					sendIntent.putExtra(Intent.EXTRA_STREAM,

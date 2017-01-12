@@ -58,6 +58,7 @@ public class RoutingHelper {
 	
 	private GPXRouteParamsBuilder currentGPXRoute = null;
 
+	// @Source(mayInclude = "RouteInfo id="040")
 	private RouteCalculationResult route = new RouteCalculationResult("");
 	
 	private LatLon finalLocation;

@@ -85,8 +85,7 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 	private FavouritesDbHelper helper;
 
 	private boolean selectionMode = false;
-	//用来选择模式中的点的选择（Map Maker　or Delete)
-	//@Source(mayInclude = "FavoritesLocations", id="030")
+	// 用来选择模式中的点的选择（Map Maker　or Delete)
 	private Set<FavouritePoint> favoritesSelected = new LinkedHashSet<>();
 	private Set<FavoriteGroup> groupsToDelete = new LinkedHashSet<>();
 	private ActionMode actionMode;
@@ -180,9 +179,7 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 
 	@Override
 	public boolean onChildClick(ExpandableListView parent, View v,
-								//@Source(mayInclude = "FavoritesLocations", id="030")
 										int groupPosition,
-								//@Source(mayInclude = "FavoritesLocations", id="030")
 											int childPosition, long id) {
 		if (selectionMode) {
 			CheckBox ch = (CheckBox) v.findViewById(R.id.toggle_item);
@@ -195,7 +192,6 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 			}
 			updateSelectionMode(actionMode);
 		} else {
-			//@Sink(mayInclude = "FavoritesLocations", id="030")
 			final FavouritePoint point = favouritesAdapter.getChild(groupPosition, childPosition);
 			showOnMap(point);
 		}
@@ -236,8 +232,6 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 		searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 			@Override
 			public boolean onQueryTextSubmit(
-					// TODO Where is @Sink
-					// @Source(mayInclude = "InterestingLocations", id="010")
 					String query) {
 				favouritesAdapter.getFilter().filter(query);
 				return true;
@@ -452,7 +446,6 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				int clr = list.get(colorSpinner.getSelectedItemPosition());
-				// @Source(mayInclude = "FavoritesGroup", id="031")
 				String name = nameEditText.getText().toString();
 				boolean nameChanged = !Algorithms.objectEquals(group.name, name);
 				if (clr != intColor || group.visible != checkBox.isChecked() || nameChanged) {
@@ -531,14 +524,13 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 					if (!dir.exists()) {
 						dir.mkdir();
 					}
-					//@Source(mayInclude = "FavoriteActions", id="032")
 					File src = helper.getExternalFile();
 					File dst = new File(dir, src.getName());
 					try {
 						Algorithms.fileCopy(src, dst);
-						//@Sink(mayInclude = "FavoriteActions", id="032")
 						final Intent sendIntent = new Intent();
 						sendIntent.setAction(Intent.ACTION_SEND);
+						//@Sink(mayInclude = "FavoritesLocations", id="010")
 						sendIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(generateHtmlPrint().toString()));
 						sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_fav_subject));
 						sendIntent.putExtra(Intent.EXTRA_STREAM,

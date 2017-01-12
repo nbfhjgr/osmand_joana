@@ -821,7 +821,9 @@ public class GPXUtilities {
            return writer.toString();
        }
 
-	public static String writeGpxFile(File fout, GPXFile file, OsmandApplication ctx) {
+	public static String writeGpxFile(File fout,
+									  // @Sink (mayInclude = "GPXDataToFile", id="011")
+									  GPXFile file, OsmandApplication ctx) {
 		Writer output = null;
 		try {
 			output = new OutputStreamWriter(new FileOutputStream(fout), "UTF-8"); //$NON-NLS-1$

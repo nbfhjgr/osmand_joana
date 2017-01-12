@@ -984,6 +984,7 @@ public class AvailableGPXFragment extends OsmandExpandableListFragment {
 		item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 			@Override
 			public boolean onMenuItemClick(MenuItem item) {
+				// @Sink(mayInclude = "GpxShare", id="020")
 				final Uri fileUri = Uri.fromFile(gpxInfo.file);
 				final Intent sendIntent = new Intent(Intent.ACTION_SEND);
 				sendIntent.putExtra(Intent.EXTRA_STREAM, fileUri);
@@ -1204,6 +1205,7 @@ public class AvailableGPXFragment extends OsmandExpandableListFragment {
 		return true;
 	}
 
+	//@Source(mayInclude = "GpxInfo", id="020")
 	public static class GpxInfo {
 		public boolean currentlyRecordingTrack;
 		public GPXFile gpx;
