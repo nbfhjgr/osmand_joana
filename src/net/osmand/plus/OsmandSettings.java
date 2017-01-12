@@ -138,11 +138,15 @@ public class OsmandSettings {
 		this.settingsAPI = settinsAPI;
 		initPrefs();
 	}
-
+	//  初始化Prefs（每次启动）
 	private void initPrefs() {
+		// 从文件中读取Prefs		  @Marker 是否需要加入IFC?
 		globalPreferences = settingsAPI.getPreferenceObject(SHARED_PREFERENCES_NAME);
+
+		// Get Default Prefs
 		defaultProfilePreferences = getProfilePreferences(ApplicationMode.DEFAULT);
 		currentMode = readApplicationMode();
+		// profilePreferences = defaultProfilePreferences
 		profilePreferences = getProfilePreferences(currentMode);
 	}
 

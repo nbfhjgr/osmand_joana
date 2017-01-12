@@ -139,9 +139,12 @@ public class AppInitializer implements IProgress {
 		if(initSettings) {
 			return;
 		}
+
+		//startPrefs = MapActivitiy's Prefs
 		startPrefs = app.getSharedPreferences(
 				getLocalClassName(app.getAppCustomization().getMapActivity().getName()),
 				Context.MODE_WORLD_WRITEABLE);
+		// 初始化一些Prefs
 		if(!startPrefs.contains(NUMBER_OF_STARTS)) {
 			startPrefs.edit().putInt(NUMBER_OF_STARTS, 1).commit();
 		} else {
@@ -488,13 +491,16 @@ public class AppInitializer implements IProgress {
 	private void startApplicationBackground() {
 		try {
 			startBgTime = System.currentTimeMillis();
+			// 从文件或者Database中获取Favorite Points
 			app.favorites.loadFavorites();
 			notifyEvent(InitEvents.FAVORITES_INITIALIZED);
 			// init poi types before indexes and before POI
+			// 从poi_types.xml 文件中获取PoiTypes
 			initPoiTypes();
 			notifyEvent(InitEvents.POI_TYPES_INITIALIZED);
 			app.resourceManager.reloadIndexesOnStart(this, warnings);
 
+			// 初始化渲染器？ How？
 			app.getRendererRegistry().initRenderers(this);
 			notifyEvent(InitEvents.INIT_RENDERERS);
 			// native depends on renderers
@@ -504,8 +510,12 @@ public class AppInitializer implements IProgress {
 			app.poiFilters.reloadAllPoiFilters();
 			app.poiFilters.loadSelectedPoiFilters();
 			notifyEvent(InitEvents.POI_TYPES_INITIALIZED);
-			indexRegionsBoundaries(warnings);
+
+			// regions.ocbf 作用？
+ 			indexRegionsBoundaries(warnings);
 			notifyEvent(InitEvents.INDEX_REGION_BOUNDARIES);
+
+			// 读取GPX Tracks （是什么？）
 			app.selectedGpxHelper.loadGPXTracks(this);
 			notifyEvent(InitEvents.LOAD_GPX_TRACKS);
 			saveGPXTracks();

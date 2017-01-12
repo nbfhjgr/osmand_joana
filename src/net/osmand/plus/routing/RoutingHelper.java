@@ -803,7 +803,7 @@ public class RoutingHelper {
 	}
 	
 	
-	
+	// 路径计算线程
 	private class RouteRecalculationThread extends Thread {
 		
 		private final RouteCalculationParams params;

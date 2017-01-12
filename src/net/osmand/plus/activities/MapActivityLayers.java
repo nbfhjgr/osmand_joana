@@ -78,6 +78,8 @@ public class MapActivityLayers {
 	private ImpassableRoadsLayer impassableRoadsLayer;
 	private MapInfoLayer mapInfoLayer;
 	private MapTextLayer mapTextLayer;
+
+	// 下方地点信息Layer
 	private ContextMenuLayer contextMenuLayer;
 	private MapControlsLayer mapControlsLayer;
 	private DownloadedRegionsLayer downloadedRegionsLayer;

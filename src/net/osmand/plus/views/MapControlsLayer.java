@@ -570,6 +570,7 @@ public class MapControlsLayer extends OsmandMapLayer {
 		zoomOutButton.setOnLongClickListener(listener);
 	}
 
+	// 开始导航
 	public void startNavigation() {
 		OsmandApplication app = mapActivity.getMyApplication();
 		RoutingHelper routingHelper = app.getRoutingHelper();

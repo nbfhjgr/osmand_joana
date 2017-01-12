@@ -211,6 +211,7 @@ public class OsmandMapTileView implements IMapDownloaderCallback {
 		currentViewport.setDensity(dm.density);
 		currentViewport.setMapDensity(getSettingsMapDensity());
 
+		// 按键，手势(譬如长按响应事件）
 		gestureDetector = new GestureDetector(ctx, new MapTileViewOnGestureListener());
 		multiTouchSupport = new MultiTouchSupport(ctx, new MapTileViewMultiTouchZoomListener());
 		doubleTapScaleDetector = new DoubleTapScaleDetector(this, new MapTileViewMultiTouchZoomListener());

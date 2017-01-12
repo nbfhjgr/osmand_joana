@@ -1385,6 +1385,7 @@ public class QuickSearchDialogFragment extends DialogFragment implements OsmAndC
 		}
 	}
 
+	// 分享历史Entries
 	private void shareHistory(final List<HistoryEntry> historyEntries) {
 		if (!historyEntries.isEmpty()) {
 			final AsyncTask<Void, Void, GPXFile> exportTask = new AsyncTask<Void, Void, GPXFile>() {

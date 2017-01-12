@@ -85,30 +85,30 @@ public class OsmandApplication extends MultiDexApplication {
 	NavigationService navigationService;
 	
 	// start variables
-	ResourceManager resourceManager;
+	ResourceManager resourceManager;						// manage memory consuming resources
 	OsmAndLocationProvider locationProvider;
-	RendererRegistry rendererRegistry;
+	RendererRegistry rendererRegistry;						// 地图渲染器？
 	DayNightHelper daynightHelper;
-	PoiFiltersHelper poiFilters;
+	PoiFiltersHelper poiFilters;							// 兴趣点过滤器
 	MapPoiTypes poiTypes;
-	RoutingHelper routingHelper;
-	FavouritesDbHelper favorites;
-	CommandPlayer player;
-	GpxSelectionHelper selectedGpxHelper;
-	SavingTrackHelper savingTrackHelper;
-	NotificationHelper notificationHelper;
-	LiveMonitoringHelper liveMonitoringHelper;
-	TargetPointsHelper targetPointsHelper;
-	MapMarkersHelper mapMarkersHelper;
-	WaypointHelper waypointHelper;
-	DownloadIndexesThread downloadIndexesThread;
-	AvoidSpecificRoads avoidSpecificRoads;
-	BRouterServiceConnection bRouterServiceConnection;
-	OsmandRegions regions;
-	GeocodingLookupService geocodingLookupService;
-	QuickSearchHelper searchUICore;
+	RoutingHelper routingHelper;							// 路线规划
+	FavouritesDbHelper favorites;							// Favourite 点的存储
+	CommandPlayer player;									// 语音命令
+	GpxSelectionHelper selectedGpxHelper;					// ???
+	SavingTrackHelper savingTrackHelper;					// 当前行驶Track的保存
+	NotificationHelper notificationHelper;					// 通知
+	LiveMonitoringHelper liveMonitoringHelper;				// Live Monitor　在线监视
+	TargetPointsHelper targetPointsHelper;					// 目的
+	MapMarkersHelper mapMarkersHelper;						// 标记
+	WaypointHelper waypointHelper;							// ?????
+	DownloadIndexesThread downloadIndexesThread;			// 下载线程
+	AvoidSpecificRoads avoidSpecificRoads;					// ????
+	BRouterServiceConnection bRouterServiceConnection;		// 连接第三方ＢＲｏｕｔｅｒＳｅｒｖｉｃｅ？
+	OsmandRegions regions;									// 计算Region
+	GeocodingLookupService geocodingLookupService;			// ??????
+	QuickSearchHelper searchUICore;							// Quick Search
 
-	RoutingConfiguration.Builder defaultRoutingConfig;
+	RoutingConfiguration.Builder defaultRoutingConfig;		// 默认的路径配置
 	private Locale preferredLocale = null;
 	private Locale defaultLocale;
 	private File externalStorageDirectory;
@@ -147,13 +147,15 @@ public class OsmandApplication extends MultiDexApplication {
 			externalStorageDirectoryReadOnly = true;
 			externalStorageDirectory = osmandSettings.getInternalAppPath();
 		}
-		
+
+		//  确定当前Locale（默认为系统Locale）
 		checkPreferredLocale();
 		appInitializer.onCreateApplication();
 //		if(!osmandSettings.FOLLOW_THE_ROUTE.get()) {
 //			targetPointsHelper.clearPointToNavigate(false);
 //		}
 
+		// 通过Gooele Play 获取Remote Config
 		initRemoteConfig();
 		startApplication();
 		System.out.println("Time to start application " + (System.currentTimeMillis() - timeToStart) + " ms. Should be less < 800 ms");
@@ -315,11 +317,13 @@ public class OsmandApplication extends MultiDexApplication {
 	public void checkPreferredLocale() {
 		Configuration config = getBaseContext().getResources().getConfiguration();
 
+		// 从Prefs获得的Location信息
 		String pl = osmandSettings.PREFERRED_LOCALE.get();
 		String[] split = pl.split("_");
 		String lang = split[0];
 		String country = (split.length > 1) ? split[1] : "";
 
+		// Get default Locale from System
 		if(defaultLocale == null) {
 			defaultLocale = Locale.getDefault();
 		}
@@ -755,7 +759,7 @@ public class OsmandApplication extends MultiDexApplication {
 		}
 	}
 	
-
+	// 是否需要加入IFC？？？
 	public void startNavigationService(int intent, int interval) {
 		final Intent serviceIntent = new Intent(this, NavigationService.class);
 		

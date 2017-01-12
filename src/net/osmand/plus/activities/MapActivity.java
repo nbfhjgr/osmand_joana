@@ -217,12 +217,18 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 		// 载入相应的actions和layers
 		mapActions = new MapActivityActions(this);
 		mapLayers = new MapActivityLayers(this);
+
+		// 增加地点，路径等监听器
 		if (mapViewTrackingUtilities == null) {
 			mapViewTrackingUtilities = new MapViewTrackingUtilities(app);
 		}
+		// 加载Dashboard
 		dashboardOnMap.createDashboardView();
 		checkAppInitialization();
+
+		// 加载Intent中的参数，如果是Location则显示地图数据
 		parseLaunchIntentLocation();
+		// ？？？
 		mapView.setTrackBallDelegate(new OsmandMapTileView.OnTrackBallListener() {
 			@Override
 			public boolean onTrackBallEvent(MotionEvent e) {
@@ -249,9 +255,10 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 		};
 		app.getResourceManager().getMapTileDownloader().addDownloaderCallback(downloaderCallback);
 		createProgressBarForRouting();
+		// 创建地图的Layers，不同组件不同Layers
 		mapLayers.createLayers(mapView);
 
-		// 导航
+		// 用来恢复上一次导航
 		// This situtation could be when navigation suddenly crashed and after restarting
 		// it tries to continue the last route
 		if (settings.FOLLOW_THE_ROUTE.get() && !app.getRoutingHelper().isRouteCalculated()
@@ -277,7 +284,7 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 		}
 		addDialogProvider(mapActions);
 		OsmandPlugin.onMapActivityCreate(this);
-		// 载入 gpx 文件
+
 		gpxImportHelper = new GpxImportHelper(this, getMyApplication(), getMapView());
 		wakeLockHelper = new WakeLockHelper(getMyApplication());
 		if (System.currentTimeMillis() - tm > 50) {
@@ -285,6 +292,7 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 		}
 		mapView.refreshMap(true);
 
+		// 创建MainMenu，并加入相应的配色（夜间，日间模式）
 		mapActions.updateDrawerMenu();
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 

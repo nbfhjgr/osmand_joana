@@ -52,13 +52,14 @@ public class FavoritesActivity extends TabActivity {
 		getSupportActionBar().setTitle(R.string.shared_string_my_places);
 		getSupportActionBar().setElevation(0);
 
-		
+
 		setContentView(R.layout.tab_content);
 		List<TabItem> mTabs = getTabItems();
 		setTabs(mTabs);
 		// setupHomeButton();
 	}
 
+	// 一般有两个Tab，My Favorites和My Tracks（只在有Tracks的时候出现），也可能通过Plugins加入新的Tab
 	private void setTabs(List<TabItem> mTabs) {
 		PagerSlidingTabStrip mSlidingTabLayout = (PagerSlidingTabStrip) findViewById(R.id.sliding_tabs);
 		OsmandSettings settings = ((OsmandApplication) getApplication()).getSettings();

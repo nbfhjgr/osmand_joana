@@ -64,7 +64,10 @@ public class FavouritesDbHelper {
 	public void loadFavorites() {
 		flatGroups.clear();
 		favoriteGroups.clear();
-		
+
+		// @Marker 需要加入IFC
+		// internalFile Default Location: /data/data/net.osmand.plus/files/favourites_bak.
+		// externalFile Default Location: /storage/sdcard/Android/data/net.osmand.plus/files/favourites.gpx
 		File internalFile = getInternalFile();
 		if(!internalFile.exists()) {
 			File dbPath = context.getDatabasePath(FAVOURITE_DB_NAME);
