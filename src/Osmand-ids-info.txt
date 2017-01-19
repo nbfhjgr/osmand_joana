@@ -1,0 +1,51 @@
+id
+001                     MapActivityOnKeyDown
+002                     MapActivityOnKeyUp
+003                     MapActivityOptionsMenuClicked
+004                     MapActivityOnLongPressed
+005                     MapContextMenuAddFavoriteInfo
+006                     MapContextMenuShareInfo
+
+MapMarkers
+021                     MapMarkersActiveItemsClicked
+022                     MapMarkersDoRoute
+024                     MapMarkersSaveGPX
+
+MyPlaces
+031                     MyPlacesMyFavouriteGroup
+032                     MyPlacesMyFavouriteSearchInput
+033                     MyPlacesMyFavouritePOIClicked
+034                     MyPlacesMyFavouriteGroupNameEdited
+035                     MyPlacesMyTracksFileName
+036                     MyPlacesMyTracksShare
+037                     MyPlacesMyTracksSearchInput
+
+Search
+041                     SearchInput
+042                     SearchResultItemClick
+
+Directions
+051                     RoutingParams
+
+
+DownloadMap
+061                     DownloadMapItemDownload
+062                     DownloadMapItemRename
+
+OSM Live
+071                     OSMLiveItemSettings
+072                     OSMLiveSubscriptionParams
+
+Configure Screens
+???
+
+Settings
+081                     SettingsGerneralChangedInfo
+082                     SettingsNaviChangedInfo
+
+Help
+???
+
+
+
+
