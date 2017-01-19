@@ -439,6 +439,7 @@ public class QuickSearchDialogFragment extends DialogFragment implements OsmAndC
 
 					@Override
 					public void afterTextChanged(Editable s) {
+						// @Source(mayInclude = "SearchInput", id="041")
 						String newQueryText = s.toString();
 
 						updateClearButtonAndHint();

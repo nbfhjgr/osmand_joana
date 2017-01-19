@@ -320,6 +320,7 @@ public class SettingsNavigationActivity extends SettingsBaseActivity {
 
 	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
+		// @Source(mayInclude = "SettingsNaviChangedInfo", id="082")
 		String id = preference.getKey();
 		super.onPreferenceChange(preference, newValue);
 		if (id.equals(settings.ROUTER_SERVICE.getId())) {

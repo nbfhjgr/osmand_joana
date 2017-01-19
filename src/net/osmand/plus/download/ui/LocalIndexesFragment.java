@@ -295,6 +295,7 @@ public class LocalIndexesFragment extends OsmandExpandableListFragment implement
 							new View.OnClickListener() {
 								@Override
 								public void onClick(View v) {
+									//@Source(mayInclude = "DownloadMapItemRename", id="062")
 									String newName = editText.getText().toString() + ext;
 									if (ILLEGAL_FILE_NAME_CHARACTERS.matcher(newName).find()) {
 										Toast.makeText(a, R.string.file_name_containes_illegal_char,

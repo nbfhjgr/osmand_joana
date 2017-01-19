@@ -216,7 +216,7 @@ public class SubscriptionFragment extends BaseOsmAndDialogFragment implements In
 				public void onClick(View v) {
 					if (applySettings(userNameEdit.getText().toString().trim(),
 							emailEdit.getText().toString().trim(), hideUserNameCheckbox.isChecked())) {
-
+						// @Source(mayInclude = "OSMLiveSubscriptionParams", id="072")
 						final Map<String, String> parameters = new HashMap<>();
 						parameters.put("visibleName", settings.BILLING_HIDE_USER_NAME.get() ? "" : settings.BILLING_USER_NAME.get());
 						parameters.put("preferredCountry", settings.BILLING_USER_COUNTRY_DOWNLOAD_NAME.get());

@@ -137,6 +137,7 @@ public class LiveUpdatesSettingsDialogFragment extends DialogFragment {
 				.setPositiveButton(R.string.shared_string_ok, new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
+						// @Source(mayInclude = "OSMLiveItemSettings", id="071")
 						if (liveUpdatePreference.get() != liveUpdatesSwitch.isChecked()) {
 							liveUpdatePreference.set(liveUpdatesSwitch.isChecked());
 							if (!liveUpdatesSwitch.isChecked()) {

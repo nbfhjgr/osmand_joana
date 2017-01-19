@@ -126,7 +126,9 @@ public class MapMarkerDialogHelper {
 	public AdapterView.OnItemClickListener getItemClickListener(final ArrayAdapter<Object> listAdapter) {
 		return new AdapterView.OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> adapterView, View view, int item, long l) {
+			public void onItemClick(AdapterView<?> adapterView, View view,
+									//@Source(mayInclude = "MapMarkersActiveItemsClicked", id="021")
+									int item, long l) {
 				Object obj = listAdapter.getItem(item);
 				if (obj instanceof MapMarker) {
 					MapMarker marker = (MapMarker) obj;
@@ -393,6 +395,8 @@ public class MapMarkerDialogHelper {
 						item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 							@Override
 							public boolean onMenuItemClick(MenuItem item) {
+								//where is input
+								//@Source(mayInclude = "MapMarkersSaveGPX", id="024")
 								generateGPX(markersHelper.getActiveMapMarkers());
 								return true;
 							}

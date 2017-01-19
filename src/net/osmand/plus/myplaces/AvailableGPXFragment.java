@@ -292,13 +292,17 @@ public class AvailableGPXFragment extends OsmandExpandableListFragment {
 		searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
 			@Override
-			public boolean onQueryTextSubmit(String query) {
+			public boolean onQueryTextSubmit(
+					//@Source(mayInclude = "MyPlacesMyTracksSearchInput", id="037")
+					String query) {
 				allGpxAdapter.getFilter().filter(query);
 				return true;
 			}
 
 			@Override
-			public boolean onQueryTextChange(String newText) {
+			public boolean onQueryTextChange(
+					//@Source(mayInclude = "MyPlacesMyTracksSearchInput", id="037")
+					String newText) {
 				allGpxAdapter.getFilter().filter(newText);
 				return true;
 			}
@@ -333,6 +337,7 @@ public class AvailableGPXFragment extends OsmandExpandableListFragment {
 			@Override
 			public boolean onContextMenuClick(ArrayAdapter<ContextMenuItem> adapter, final int itemId, int pos, boolean isChecked) {
 				if (itemId == R.string.local_index_mi_reload) {
+					// Load GPX Tracks From File?
 					asyncLoader = new LoadGpxTask();
 					asyncLoader.execute(getActivity());
 				} else if (itemId == R.string.shared_string_show_on_map) {
@@ -984,7 +989,7 @@ public class AvailableGPXFragment extends OsmandExpandableListFragment {
 		item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 			@Override
 			public boolean onMenuItemClick(MenuItem item) {
-				// @Sink(mayInclude = "GpxShare", id="020")
+				// @Source(mayInclude = "MyPlacesMyTracksShare", id="036")
 				final Uri fileUri = Uri.fromFile(gpxInfo.file);
 				final Intent sendIntent = new Intent(Intent.ACTION_SEND);
 				sendIntent.putExtra(Intent.EXTRA_STREAM, fileUri);

@@ -230,7 +230,9 @@ public class ItemViewHolder {
 		}
 	}
 
-	protected void download(IndexItem indexItem, DownloadResourceGroup parentOptional) {
+	protected void download(
+			// @Source(mayInclude = "DownloadMapItemDownload", id="061")
+			IndexItem indexItem, DownloadResourceGroup parentOptional) {
 		boolean handled = false;
 		if(parentOptional != null) {
 			WorldRegion region = DownloadResourceGroup.getRegion(parentOptional);

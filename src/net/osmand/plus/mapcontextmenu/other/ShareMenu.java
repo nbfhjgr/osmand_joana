@@ -67,7 +67,9 @@ public class ShareMenu extends BaseMenuController {
 		return title;
 	}
 
-	public static void show(LatLon latLon, String title, MapActivity mapActivity) {
+	public static void show(
+			// @Source(mayInclude = "MapContextMenuShareInfo", id="006")
+			LatLon latLon, String title, MapActivity mapActivity) {
 
 		ShareMenu menu = new ShareMenu(mapActivity);
 

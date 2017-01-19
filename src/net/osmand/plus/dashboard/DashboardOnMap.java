@@ -136,8 +136,11 @@ public class DashboardOnMap implements ObservableScrollViewCallbacks, DynamicLis
 	private OnItemClickListener listAdapterOnClickListener;
 	private SwipeDismissListViewTouchListener swipeDismissListener;
 
+	// @Source(mayInclude = "MapActivityOptionsMenuClicked", id="003")
 	private boolean visible = false;
+	// @Source(mayInclude = "MapActivityOptionsMenuClicked", id="003")
 	private DashboardType visibleType;
+	// @Source(mayInclude = "MapActivityOptionsMenuClicked", id="003")
 	private DashboardType previousVisibleType;
 	private ApplicationMode previousAppMode;
 	private boolean landscape;
@@ -604,6 +607,7 @@ public class DashboardOnMap implements ObservableScrollViewCallbacks, DynamicLis
 				if (visibleType == DashboardType.MAP_MARKERS_SELECTION) {
 					TargetPointsHelper targetPointsHelper = getMyApplication().getTargetPointsHelper();
 					MapMarkersHelper markersHelper = getMyApplication().getMapMarkersHelper();
+					//@Source(mayInclude = "MapMarkersDoRoute", id="022")
 					List<MapMarker> markers = markersHelper.getSelectedMarkers();
 					if (markers.size() > 0) {
 						int i = 0;

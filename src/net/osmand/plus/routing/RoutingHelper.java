@@ -811,7 +811,9 @@ public class RoutingHelper {
 		private boolean paramsChanged;
 		private Thread prevRunningJob;
 
-		public RouteRecalculationThread(String name, RouteCalculationParams params, boolean paramsChanged) {
+		public RouteRecalculationThread(String name,
+										//@Source(mayInclude = "RoutingParams", id="051")
+										RouteCalculationParams params, boolean paramsChanged) {
 			super(name);
 			this.params = params;
 			this.paramsChanged = paramsChanged;

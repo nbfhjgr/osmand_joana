@@ -183,6 +183,7 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 											int childPosition, long id) {
 		if (selectionMode) {
 			CheckBox ch = (CheckBox) v.findViewById(R.id.toggle_item);
+			// @Source (mayInclude = "MyPlacesMyFavouritePOIClicked", id="033")
 			FavouritePoint model = favouritesAdapter.getChild(groupPosition, childPosition);
 			ch.setChecked(!ch.isChecked());
 			if (ch.isChecked()) {
@@ -232,13 +233,16 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 		searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 			@Override
 			public boolean onQueryTextSubmit(
+					//@Source (mayInclude = "MyPlacesMyFavouriteSearchInput", id="032")
 					String query) {
 				favouritesAdapter.getFilter().filter(query);
 				return true;
 			}
 
 			@Override
-			public boolean onQueryTextChange(String newText) {
+			public boolean onQueryTextChange(
+					//@Source (mayInclude = "MyPlacesMyFavouriteSearchInput", id="032")
+					String newText) {
 				favouritesAdapter.getFilter().filter(newText);
 				return true;
 			}
@@ -446,6 +450,7 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				int clr = list.get(colorSpinner.getSelectedItemPosition());
+				//@Source(mayInclude = "MyPlacesMyFavouriteGroupNameEdited", id="034")
 				String name = nameEditText.getText().toString();
 				boolean nameChanged = !Algorithms.objectEquals(group.name, name);
 				if (clr != intColor || group.visible != checkBox.isChecked() || nameChanged) {
@@ -635,6 +640,7 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 	class FavouritesAdapter extends OsmandBaseExpandableListAdapter implements Filterable {
 
 		private static final boolean showOptionsButton = false;
+		// @Source(mayInclude = "MyPlacesMyFavouriteGroup", id="031")
 		Map<FavoriteGroup, List<FavouritePoint>> favoriteGroups = new LinkedHashMap<>();
 		List<FavoriteGroup> groups = new ArrayList<FavoriteGroup>();
 		Filter myFilter;

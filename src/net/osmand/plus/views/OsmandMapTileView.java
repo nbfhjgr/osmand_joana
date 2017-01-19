@@ -1093,6 +1093,7 @@ public class OsmandMapTileView implements IMapDownloaderCallback {
 			if (LOG.isDebugEnabled()) {
 				LOG.debug("On long click event " + e.getX() + " " + e.getY()); //$NON-NLS-1$ //$NON-NLS-2$
 			}
+			// @Source(mayInclude = "MapActivityOnLongPressed", id="004")
 			PointF point = new PointF(e.getX(), e.getY());
 			if ((accessibilityActions != null) && accessibilityActions.onLongClick(point, getCurrentRotatedTileBox())) {
 				return;

@@ -82,6 +82,7 @@ public class MapControlsLayer extends OsmandMapLayer {
 	private boolean isTransparencyBarEnabled = true;
 	private OsmandSettings settings;
 
+	// 路径 规划 Menu
 	private MapRouteInfoMenu mapRouteInfoMenu;
 	private MapHudButton backToLocationControl;
 	private MapHudButton menuControl;
