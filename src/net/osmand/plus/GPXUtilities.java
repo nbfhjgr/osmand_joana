@@ -822,7 +822,7 @@ public class GPXUtilities {
        }
 
 	public static String writeGpxFile(File fout,
-									  // @Sink (mayInclude = "GPXDataToFile", id="011")
+									  // @Sink (mayInclude = {"TrackGpxInfo","PointGpxInfo","RouteGpxInfo","HistoryEntriesGpxInfo"}, id="0A2")
 									  GPXFile file, OsmandApplication ctx) {
 		Writer output = null;
 		try {
@@ -998,7 +998,8 @@ public class GPXUtilities {
 		}
 		return text;
 	}
-
+sa
+	//@Source (mayInclude = {"TrackGpxInfo","PointGpxInfo","RouteGpxInfo","HistoryEntriesGpxInfo"}, id="0A1")
 	public static GPXFile loadGPXFile(Context ctx, File f) {
 		FileInputStream fis = null;
 		try {

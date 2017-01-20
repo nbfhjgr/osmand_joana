@@ -106,7 +106,7 @@ public class ShowRouteInfoActivity extends OsmandListActivity {
 				fw.close();
 				final Intent sendIntent = new Intent();
 				sendIntent.setAction(Intent.ACTION_SEND);
-				// @Sink(mayInclude = "RouteInfo", id="040")
+				// @Sink(mayInclude = "RoutingInfo", id="052")
 				sendIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(generateHtml(((RouteInfoAdapter)getListAdapter()), 
 						helper.getGeneralRouteInformation()).toString()));
 				sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_route_subject));
@@ -254,7 +254,7 @@ public class ShowRouteInfoActivity extends OsmandListActivity {
 	}
 
 	void print() {
-		//@Sink(mayInclude = "RouteInfo", id="040")
+		//@Sink(mayInclude = "RoutingInfo", id="052")
 		File file = generateRouteInfoHtml((RouteInfoAdapter)getListAdapter(),
 				helper.getGeneralRouteInformation());
 		if (file.exists()) {

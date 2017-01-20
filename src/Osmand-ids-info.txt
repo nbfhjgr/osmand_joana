@@ -23,9 +23,12 @@ MyPlaces
 Search
 041                     SearchInput
 042                     SearchResultItemClick
+043                     HistoryShare
 
-Directions
+Directions/Routing Monitoring
 051                     RoutingParams
+052                     RoutingInfo
+053                     TrackShare
 
 
 DownloadMap
@@ -46,6 +49,11 @@ Settings
 Help
 ???
 
+FileActions
+Load
+0A1                     GpxLoadInfo as "TrackGpxInfo","PointGpxInfo","RouteGpxInfo","HistoryEntriesGpxInfo" marked
+Save
+0A2                     GpxLoadInfo as "TrackGpxInfo","PointGpxInfo","RouteGpxInfo","HistoryEntriesGpxInfo" marked
 
 
 

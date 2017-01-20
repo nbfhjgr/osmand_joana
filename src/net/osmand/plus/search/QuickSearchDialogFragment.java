@@ -1422,7 +1422,7 @@ public class QuickSearchDialogFragment extends DialogFragment implements OsmAndC
 
 					final Intent sendIntent = new Intent();
 					sendIntent.setAction(Intent.ACTION_SEND);
-					// @Sink(mayInclude = "HistoryEntries", id="030")
+					// @Sink(mayInclude = "HistoryShare", id="043")
 					sendIntent.putExtra(Intent.EXTRA_TEXT, "History.gpx:\n\n\n" + GPXUtilities.asString(gpxFile, app));
 					sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_history_subject));
 					sendIntent.putExtra(Intent.EXTRA_STREAM,

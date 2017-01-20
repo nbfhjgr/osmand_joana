@@ -39,9 +39,7 @@ public class FavouritesDbHelper {
 	public static final int BACKUP_CNT = 20; //$NON-NLS-1$
 	public static final String FILE_TO_BACKUP = "favourites_bak.gpx"; //$NON-NLS-1$
 
-	// @Source(mayInclude = "CachedFavoritePoints", id="011")
 	private List<FavouritePoint> cachedFavoritePoints = new ArrayList<FavouritePoint>();
-	// @Source(mayInclude = "FavouriteGroups", id="010")
 	private List<FavoriteGroup> favoriteGroups = new ArrayList<FavouritesDbHelper.FavoriteGroup>();
 
 	private Map<String, FavoriteGroup> flatGroups = new LinkedHashMap<String, FavouritesDbHelper.FavoriteGroup>();
