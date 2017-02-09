@@ -283,9 +283,9 @@ public class SelectedGPXFragment extends OsmAndListFragment {
 					.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 						@Override
 						public boolean onMenuItemClick(MenuItem item) {
+							// @Sink(mayInclude = "trackInfo", id="201")
 							final Uri fileUri = Uri.fromFile(new File(getGpx().path));
 							final Intent sendIntent = new Intent(Intent.ACTION_SEND);
-							// @Sink(mayInclude = "TrackShare", id="053")
 							sendIntent.putExtra(Intent.EXTRA_STREAM, fileUri);
 							sendIntent.setType("application/gpx+xml");
 							startActivity(sendIntent);

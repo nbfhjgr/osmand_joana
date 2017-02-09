@@ -821,9 +821,7 @@ public class GPXUtilities {
            return writer.toString();
        }
 
-	public static String writeGpxFile(File fout,
-									  // @Sink (mayInclude = {"TrackGpxInfo","PointGpxInfo","RouteGpxInfo","HistoryEntriesGpxInfo"}, id="0A2")
-									  GPXFile file, OsmandApplication ctx) {
+	public static String writeGpxFile(File fout, GPXFile file, OsmandApplication ctx) {
 		Writer output = null;
 		try {
 			output = new OutputStreamWriter(new FileOutputStream(fout), "UTF-8"); //$NON-NLS-1$
@@ -842,7 +840,9 @@ public class GPXUtilities {
 		}
 	}
 
-	public static String writeGpx(Writer output, GPXFile file, OsmandApplication ctx) {
+	public static String writeGpx(Writer output,
+								  // @Sink (mayInclude = {"selectedPoint", "selectedMarker", "favFromUser", "favFromFile", "favSelectedItemsMulti", "hisFromUser", "hisFromFile", "routeInfo", "trackInfo"}, id="A02")
+								  GPXFile file, OsmandApplication ctx) {
 		try {
 			SimpleDateFormat format = new SimpleDateFormat(GPX_TIME_FORMAT, Locale.US);
 			format.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -998,8 +998,8 @@ public class GPXUtilities {
 		}
 		return text;
 	}
-sa
-	//@Source (mayInclude = {"TrackGpxInfo","PointGpxInfo","RouteGpxInfo","HistoryEntriesGpxInfo"}, id="0A1")
+
+
 	public static GPXFile loadGPXFile(Context ctx, File f) {
 		FileInputStream fis = null;
 		try {
@@ -1028,6 +1028,7 @@ sa
 	}
 
 	public static GPXFile loadGPXFile(Context ctx, InputStream f) {
+		//@Source (mayInclude = {"centerLocationOnMap","selectedMarker", "favFromFile",	"hisFromFile","routeInfo","trackInfo"}, id="0A1")
 		GPXFile res = new GPXFile();
 		SimpleDateFormat format = new SimpleDateFormat(GPX_TIME_FORMAT, Locale.US);
 		format.setTimeZone(TimeZone.getTimeZone("UTC"));

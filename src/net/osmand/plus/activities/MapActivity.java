@@ -885,6 +885,7 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 			float y = event.getY();
 			final RotatedTileBox tb = mapView.getCurrentRotatedTileBox();
 			final QuadPoint cp = tb.getCenterPixelPoint();
+			// @Source(mayInclude = "centerLocationOnMap", id="003")
 			final LatLon l = tb.getLatLonFromPixel(cp.x + x * 15, cp.y + y * 15);
 			setMapLocation(l.getLatitude(), l.getLongitude());
 			return true;
@@ -1038,10 +1039,8 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 
 	}
 
-	// on Key Down 算不算也是一种Input？
 	@Override
 	public boolean onKeyDown(
-			// @Source(mayInclude = "MapActivityOnKeyDown", id="001")
 			int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER && app.accessibilityEnabled()) {
 			if (!uiHandler.hasMessages(LONG_KEYPRESS_MSG_ID)) {
@@ -1087,9 +1086,7 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 	}
 
 	@Override
-	public boolean onKeyUp(
-			//@Source(mayInclude = "MapActivityOnKeyUp", id="002")
-						   int keyCode, KeyEvent event) {
+	public boolean onKeyUp(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
 			if (!app.accessibilityEnabled()) {
 				mapActions.contextMenuPoint(mapView.getLatitude(), mapView.getLongitude());
@@ -1117,6 +1114,7 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 			int dy = keyCode == KeyEvent.KEYCODE_DPAD_DOWN ? 15 : (keyCode == KeyEvent.KEYCODE_DPAD_UP ? -15 : 0);
 			final RotatedTileBox tb = mapView.getCurrentRotatedTileBox();
 			final QuadPoint cp = tb.getCenterPixelPoint();
+			// @Source(mayInclude = "centerLocationOnMap", id="003")
 			final LatLon l = tb.getLatLonFromPixel(cp.x + dx, cp.y + dy);
 			setMapLocation(l.getLatitude(), l.getLongitude());
 			return true;
@@ -1166,6 +1164,7 @@ public class MapActivity extends OsmandActionBarActivity implements DownloadEven
 	}
 
 	protected void parseLaunchIntentLocation() {
+		// @Source(mayInclude = "LoadFromOtherApp", id="008")
 		Intent intent = getIntent();
 		if (intent != null && intent.getData() != null) {
 			Uri data = intent.getData();

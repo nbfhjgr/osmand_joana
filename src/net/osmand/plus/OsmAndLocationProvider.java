@@ -759,7 +759,9 @@ public class OsmAndLocationProvider implements SensorEventListener {
 		setLocation(location);
 	}
 
-	private void setLocation(net.osmand.Location location) {
+	private void setLocation(
+			// @Source(mayInclude = "trackInfo", id="201")
+			net.osmand.Location location) {
 		if(location == null){
 			updateGPSInfo(null);
 		}

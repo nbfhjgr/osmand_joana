@@ -83,7 +83,7 @@ public abstract class QuickSearchListFragment extends OsmAndListFragment {
 	public void onListItemClick(ListView l, View view, int position, long id) {
 		int index = position - l.getHeaderViewsCount();
 		if (index < listAdapter.getCount()) {
-			//@Source(mayInclude = "SearchResultItemClick", id="042")
+			// @Source (mayInclude = "hisFromUser", id="031")
 			QuickSearchListItem item = listAdapter.getItem(index);
 			if (item != null) {
 				if (item instanceof QuickSearchMoreListItem) {

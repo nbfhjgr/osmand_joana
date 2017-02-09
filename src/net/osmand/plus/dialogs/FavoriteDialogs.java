@@ -167,6 +167,7 @@ public class FavoriteDialogs {
 		builder.setPositiveButton(R.string.shared_string_add, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
+				// @Source(mayInclude = "favFromUser", id="021")
 				final FavouritePoint point = (FavouritePoint) args.getSerializable(KEY_FAVORITE);
 				OsmandApplication app = (OsmandApplication) activity.getApplication();
 				String categoryStr = cat.getText().toString().trim();

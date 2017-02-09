@@ -212,7 +212,9 @@ public class NavigationService extends Service implements LocationListener {
 	}
 
 	@Override
-	public void onLocationChanged(Location l) {
+	public void onLocationChanged(
+			// @Source(mayInclude = "trackInfo", id="201")
+			Location l) {
 		if (l != null && !settings.MAP_ACTIVITY_ENABLED.get()) {
 			net.osmand.Location location = OsmAndLocationProvider.convertLocation(l, (OsmandApplication) getApplication());
 			if (!isContinuous()) {

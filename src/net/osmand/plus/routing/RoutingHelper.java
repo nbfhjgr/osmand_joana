@@ -812,7 +812,7 @@ public class RoutingHelper {
 		private Thread prevRunningJob;
 
 		public RouteRecalculationThread(String name,
-										//@Source(mayInclude = "RoutingParams", id="051")
+										//@Source ( mayInclude = "routePara", id="102")
 										RouteCalculationParams params, boolean paramsChanged) {
 			super(name);
 			this.params = params;
@@ -850,6 +850,9 @@ public class RoutingHelper {
 			}
 			lastRouteCalcError = null;
 			lastRouteCalcErrorShort = null;
+
+			//@Sink ( mayInclude = "routePara", id="102")
+			//@Source ( mayInclude = "routeInfo", id="101")
 			RouteCalculationResult res = provider.calculateRouteImpl(params);
 			if (params.calculationProgress.isCancelled) {
 				synchronized (RoutingHelper.this) {

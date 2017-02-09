@@ -767,7 +767,9 @@ public class AvailableGPXFragment extends OsmandExpandableListFragment {
 		}
 
 		@Override
-		public View getChildView(final int groupPosition, final int childPosition, boolean isLastChild,
+		public View getChildView(final int groupPosition,
+								 // @Source(mayInclude = "MyPlacesMyTracks", id="036")
+								 final int childPosition, boolean isLastChild,
 								 View convertView, ViewGroup parent) {
 			View v = convertView;
 			final GpxInfo child = getChild(groupPosition, childPosition);
@@ -989,7 +991,7 @@ public class AvailableGPXFragment extends OsmandExpandableListFragment {
 		item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 			@Override
 			public boolean onMenuItemClick(MenuItem item) {
-				// @Source(mayInclude = "MyPlacesMyTracksShare", id="036")
+				// @Sink(mayInclude = "MyPlacesMyTracks", id="036")
 				final Uri fileUri = Uri.fromFile(gpxInfo.file);
 				final Intent sendIntent = new Intent(Intent.ACTION_SEND);
 				sendIntent.putExtra(Intent.EXTRA_STREAM, fileUri);
@@ -1132,6 +1134,7 @@ public class AvailableGPXFragment extends OsmandExpandableListFragment {
 
 		@Override
 		protected FilterResults performFiltering(CharSequence constraint) {
+			//@Sink(mayInclude = "MyPlacesMyTracksSearchInput", id="037")
 			FilterResults results = new FilterResults();
 			final List<GpxInfo> raw = asyncLoader.getResult();
 			if (constraint == null || constraint.length() == 0 || raw == null) {

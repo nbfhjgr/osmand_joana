@@ -1619,6 +1619,7 @@ public class OsmandSettings {
 		}
 	}
 
+	// @Sink (mayInclude = {"MyPlacesMyFavouritePOIClicked","MapActivityOnLongPressed"}, id="033")
 	private Object objectToShow;
 
 	public Object getAndClearObjectToShow() {

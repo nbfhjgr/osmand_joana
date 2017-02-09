@@ -68,7 +68,7 @@ public class ShareMenu extends BaseMenuController {
 	}
 
 	public static void show(
-			// @Source(mayInclude = "MapContextMenuShareInfo", id="006")
+			// @Source(mayInclude = "sharedLocation", id="002")
 			LatLon latLon, String title, MapActivity mapActivity) {
 
 		ShareMenu menu = new ShareMenu(mapActivity);
@@ -81,6 +81,7 @@ public class ShareMenu extends BaseMenuController {
 
 	public void share(ShareItem item) {
 		final int zoom = getMapActivity().getMapView().getZoom();
+		// @Sink(mayInclude = {"sharedLocation", "favFromUser", "hisFromUser"}, id="A01")
 		final String geoUrl = MapUtils.buildGeoUrl(latLon.getLatitude(), latLon.getLongitude(), zoom);
 		final String httpUrl = "http://osmand.net/go?lat=" + ((float) latLon.getLatitude())
 				+ "&lon=" + ((float) latLon.getLongitude()) + "&z=" + zoom;
@@ -90,6 +91,7 @@ public class ShareMenu extends BaseMenuController {
 		}
 		sb.append(getMapActivity().getString(R.string.shared_string_location)).append(": ");
 		sb.append(geoUrl).append("\n").append(httpUrl);
+		// @Sink(mayInclude = {"sharedLocation", "favFromUser", "hisFromUser"}, id="A01")
 		String sms = sb.toString();
 		switch (item) {
 			case MESSAGE:
@@ -103,6 +105,7 @@ public class ShareMenu extends BaseMenuController {
 				getMapActivity().startActivity(mapIntent);
 				break;
 			case QR_CODE:
+				// @Sink(mayInclude = {"sharedLocation", "favFromUser", "hisFromUser"}, id="A01")
 				Bundle bundle = new Bundle();
 				bundle.putFloat("LAT", (float) latLon.getLatitude());
 				bundle.putFloat("LONG", (float) latLon.getLongitude());

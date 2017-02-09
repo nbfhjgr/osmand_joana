@@ -183,7 +183,6 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 											int childPosition, long id) {
 		if (selectionMode) {
 			CheckBox ch = (CheckBox) v.findViewById(R.id.toggle_item);
-			// @Source (mayInclude = "MyPlacesMyFavouritePOIClicked", id="033")
 			FavouritePoint model = favouritesAdapter.getChild(groupPosition, childPosition);
 			ch.setChecked(!ch.isChecked());
 			if (ch.isChecked()) {
@@ -193,6 +192,7 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 			}
 			updateSelectionMode(actionMode);
 		} else {
+			// @Source (mayInclude = "favSelectedItemsMulti", id="023")
 			final FavouritePoint point = favouritesAdapter.getChild(groupPosition, childPosition);
 			showOnMap(point);
 		}
@@ -233,7 +233,7 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 		searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 			@Override
 			public boolean onQueryTextSubmit(
-					//@Source (mayInclude = "MyPlacesMyFavouriteSearchInput", id="032")
+					//@Source (mayInclude = "favSearch", id="024")
 					String query) {
 				favouritesAdapter.getFilter().filter(query);
 				return true;
@@ -241,7 +241,7 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 
 			@Override
 			public boolean onQueryTextChange(
-					//@Source (mayInclude = "MyPlacesMyFavouriteSearchInput", id="032")
+					//@Source (mayInclude = "favSearch", id="024")
 					String newText) {
 				favouritesAdapter.getFilter().filter(newText);
 				return true;
@@ -450,7 +450,7 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				int clr = list.get(colorSpinner.getSelectedItemPosition());
-				//@Source(mayInclude = "MyPlacesMyFavouriteGroupNameEdited", id="034")
+				//@Source(mayInclude = "favFromUser", id="021")
 				String name = nameEditText.getText().toString();
 				boolean nameChanged = !Algorithms.objectEquals(group.name, name);
 				if (clr != intColor || group.visible != checkBox.isChecked() || nameChanged) {
@@ -533,9 +533,9 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 					File dst = new File(dir, src.getName());
 					try {
 						Algorithms.fileCopy(src, dst);
+						//@Sink(mayInclude = {"favFromUser","favFromFile"}, id="025")
 						final Intent sendIntent = new Intent();
 						sendIntent.setAction(Intent.ACTION_SEND);
-						//@Sink(mayInclude = "FavoritesLocations", id="010")
 						sendIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(generateHtmlPrint().toString()));
 						sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_fav_subject));
 						sendIntent.putExtra(Intent.EXTRA_STREAM,
@@ -640,7 +640,6 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 	class FavouritesAdapter extends OsmandBaseExpandableListAdapter implements Filterable {
 
 		private static final boolean showOptionsButton = false;
-		// @Source(mayInclude = "MyPlacesMyFavouriteGroup", id="031")
 		Map<FavoriteGroup, List<FavouritePoint>> favoriteGroups = new LinkedHashMap<>();
 		List<FavoriteGroup> groups = new ArrayList<FavoriteGroup>();
 		Filter myFilter;
@@ -861,6 +860,7 @@ public class FavoritesTreeFragment extends OsmandExpandableListFragment {
 
 		@Override
 		protected FilterResults performFiltering(CharSequence constraint) {
+			//@Sink(mayInclude = "favSearch", id="024")
 			FilterResults results = new FilterResults();
 			if (constraint == null || constraint.length() == 0) {
 				results.values = null;

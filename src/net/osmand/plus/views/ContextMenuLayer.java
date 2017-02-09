@@ -666,7 +666,9 @@ public class ContextMenuLayer extends OsmandMapLayer {
 		switch (event.getAction()) {
 			case MotionEvent.ACTION_DOWN:
 				if (!mInChangeMarkerPositionMode) {
-					selectObjectsForContextMenu(tileBox, new PointF(event.getX(), event.getY()), true);
+					selectObjectsForContextMenu(tileBox,
+							// @Source(mayInclude = "selectedPoint", id="001")
+							new PointF(event.getX(), event.getY()), true);
 					if (pressedLatLonFull.size() > 0 || pressedLatLonSmall.size() > 0) {
 						view.refreshMap();
 					}

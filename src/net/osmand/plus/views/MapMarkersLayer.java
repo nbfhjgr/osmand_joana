@@ -359,7 +359,9 @@ public class MapMarkersLayer extends OsmandMapLayer implements IContextMenuProvi
 		if (!longTapDetector.onTouchEvent(event)) {
 			switch (event.getAction()) {
 				case MotionEvent.ACTION_DOWN:
+					// @Source(mayInclude = "selectedPoint", id="001")
 					float x = event.getX();
+					// @Source(mayInclude = "selectedPoint", id="001")
 					float y = event.getY();
 					fingerLocation = tileBox.getLatLonFromPixel(x, y);
 					hasMoved = false;

@@ -7,6 +7,7 @@ import net.osmand.util.Algorithms;
 
 public class FavoritePointEditor extends PointEditor {
 
+	// @Source(mayInclude = "favFromUser", id="021")
 	private FavouritePoint favorite;
 
 	public static final String TAG = "FavoritePointEditorFragment";

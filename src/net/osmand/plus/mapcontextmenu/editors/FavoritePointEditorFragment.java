@@ -111,7 +111,6 @@ public class FavoritePointEditorFragment extends PointEditorFragment {
 
 	@Override
 	protected void save(final boolean needDismiss) {
-		// @Source(mayInclude = "MapContextMenuAddFavoriteInfo", id="005")
 		final FavouritePoint point = new FavouritePoint(favorite.getLatitude(), favorite.getLongitude(),
 				getNameTextValue(), getCategoryTextValue());
 		point.setDescription(getDescriptionTextValue());

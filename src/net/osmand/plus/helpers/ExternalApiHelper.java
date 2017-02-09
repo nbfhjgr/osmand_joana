@@ -354,7 +354,7 @@ public class ExternalApiHelper {
 						LOG.error("Wrong color tag: " + colorTag);
 					}
 				}
-
+				// @Source(mayInclude = "favFromFile", id="022")
 				FavouritePoint fav = new FavouritePoint(lat, lon, name, category);
 				fav.setDescription(desc);
 				fav.setColor(color);

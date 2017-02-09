@@ -104,9 +104,9 @@ public class ShowRouteInfoActivity extends OsmandListActivity {
 				FileWriter fw = new FileWriter(dst);
 				GPXUtilities.writeGpx(fw, gpx, getMyApplication());
 				fw.close();
+				// @Sink(mayInclude = "routeInfo", id="101")
 				final Intent sendIntent = new Intent();
 				sendIntent.setAction(Intent.ACTION_SEND);
-				// @Sink(mayInclude = "RoutingInfo", id="052")
 				sendIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(generateHtml(((RouteInfoAdapter)getListAdapter()), 
 						helper.getGeneralRouteInformation()).toString()));
 				sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_route_subject));
@@ -254,7 +254,7 @@ public class ShowRouteInfoActivity extends OsmandListActivity {
 	}
 
 	void print() {
-		//@Sink(mayInclude = "RoutingInfo", id="052")
+		//@Sink(mayInclude = "routeInfo", id="101")
 		File file = generateRouteInfoHtml((RouteInfoAdapter)getListAdapter(),
 				helper.getGeneralRouteInformation());
 		if (file.exists()) {

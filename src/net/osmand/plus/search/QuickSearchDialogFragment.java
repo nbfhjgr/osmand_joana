@@ -439,7 +439,7 @@ public class QuickSearchDialogFragment extends DialogFragment implements OsmAndC
 
 					@Override
 					public void afterTextChanged(Editable s) {
-						// @Source(mayInclude = "SearchInput", id="041")
+						// @Source(mayInclude = "searchInput", id="033")
 						String newQueryText = s.toString();
 
 						updateClearButtonAndHint();
@@ -1417,12 +1417,12 @@ public class QuickSearchDialogFragment extends DialogFragment implements OsmAndC
 					if (!dir.exists()) {
 						dir.mkdir();
 					}
+					// @Sink (mayInclude = {"hisFromUser","hisFromFile"}, id="034")
 					File dst = new File(dir, "History.gpx");
 					GPXUtilities.writeGpxFile(dst, gpxFile, app);
 
 					final Intent sendIntent = new Intent();
 					sendIntent.setAction(Intent.ACTION_SEND);
-					// @Sink(mayInclude = "HistoryShare", id="043")
 					sendIntent.putExtra(Intent.EXTRA_TEXT, "History.gpx:\n\n\n" + GPXUtilities.asString(gpxFile, app));
 					sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_history_subject));
 					sendIntent.putExtra(Intent.EXTRA_STREAM,
@@ -1445,6 +1445,7 @@ public class QuickSearchDialogFragment extends DialogFragment implements OsmAndC
 			updateFab();
 		}
 
+		// @Sink(mayInclude = "searchInput", id="033")
 		SearchResult sr = new SearchResult(searchUICore.getPhrase());
 		sr.localeName = filter.getName();
 		sr.object = filter;
